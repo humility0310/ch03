@@ -15,7 +15,14 @@ public class FileCopy {
 		try {
 			fis = new FileInputStream("1.jpg");
 			fos = new FileOutputStream("2.back.jpg");
+
+			int data = -1;
+			while ((data = fis.read()) != -1) {
+				fos.write(data);
+			}
 		} catch (FileNotFoundException e) {
+			System.out.println("error:" + e);
+		} catch (IOException e) {
 			System.out.println("error:" + e);
 		} finally {
 			try {
